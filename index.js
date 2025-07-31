@@ -4,6 +4,8 @@ const portfolioRoute = require('./routes/portfolio');
 const connectDB = require('./utils/db');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoute');
+// const cohereCompareRoute = require('./routes/cohere');
+const openAICompareRoute = require('./routes/openAI')
 
 const app = express();
 const PORT = process.env.PORT;
@@ -17,6 +19,10 @@ app.use(express.json());
 app.use('/portfolio', portfolioRoute);
 //jaqueline login route
 app.use('/user', userRoutes);
+//cohere AI
+// app.use("/compare", cohereCompareRoute);
+//openAI
+app.use("/compare", openAICompareRoute);
 
 app.get('/', (req, res) => {
     res.status(200).json({
