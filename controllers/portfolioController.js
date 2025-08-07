@@ -15,6 +15,22 @@ exports.getPortfolioByEmail = async (req, res) => {
     }
 }
 
+exports.getPortfolioById = async (req, res) => {
+    const id = req.params.id
+    console.log('id', id, typeof id);
+    try{
+        const portfolio = await Portfolio.findById(id);
+        if(!portfolio){
+            res.status(404).json({message: 'portfolio not found'});
+            return;
+        }
+        res.status(200).json(portfolio);
+    }catch(error){
+        console.log('error getting portfolio: ', error);
+        res.status(500).json({message: 'error getting portfolio'});
+    }
+}
+
 exports.addPortfolio = async (req, res) => {
     const{ portfolio } = req.body;
     try{

@@ -17,7 +17,11 @@ async function generateMatchSummary(resumeJSON, jobText) {
 
     Output format:
     ✓ Matches: skill1, skill2
+
+
     ✗ Missing: skill3, skill4
+
+    
     Summary: [very short overall assessment]
   `;
 
