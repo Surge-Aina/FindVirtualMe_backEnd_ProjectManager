@@ -1,18 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const portfolioRoute = require('./routes/portfolio');
-const connectDB = require('./utils/db');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoute');
 // const cohereCompareRoute = require('./routes/cohere');
 const openAICompareRoute = require('./routes/openAI')
-
 const app = express();
 const PORT = process.env.PORT;
-
-connectDB().catch(error => {
-    console.error('Database connection failed: ', error);
-});
 
 app.use(cors());
 app.use(express.json());
@@ -31,6 +25,4 @@ app.get('/', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
-    console.log(`listening on PORT:${PORT}`)
-});
+module.exports = app;

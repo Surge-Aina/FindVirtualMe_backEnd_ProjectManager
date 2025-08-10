@@ -29,7 +29,7 @@ const PortfolioSchema = new mongoose.Schema({
   name: {type: String},
   title: {type: String},
   summary: {type: String},
-  email: {type: String, unique: true},
+  email: {type: String, required: true, unique: true},
   phone: {type: String},
   location: {type: String},
   skills: [{type: String}],

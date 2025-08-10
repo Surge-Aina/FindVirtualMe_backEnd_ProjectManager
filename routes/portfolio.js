@@ -3,9 +3,11 @@ const router = express.Router();
 const { getPortfolioByEmail, 
         addPortfolio, 
         deletePortfolioByEmail,
-        editPortfolioByEmail} = require('../controllers/portfolioController');
+        editPortfolioByEmail,
+        getPortfolioById} = require('../controllers/portfolioController');
 
 router.get('/me', getPortfolioByEmail);
+router.get('/id/:id', getPortfolioById);
 
 router.post('/add', addPortfolio);
 
